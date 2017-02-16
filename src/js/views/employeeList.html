@@ -1,0 +1,23 @@
+<div class="panel panel-success">
+  <div class="panel-heading">Employees List</div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr class="thead">
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Contact Info</th>
+          <th>Date Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="employee in employees">
+          <td>{{employee.name}}</td>
+          <td>{{employee.gender}}</td>
+          <td>{{employee.contactInfo}}</td>
+          <td>{{employee.dateAdded}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
