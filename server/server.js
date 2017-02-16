@@ -3,6 +3,11 @@ const path = require('path');
 const open = require('open');
 const compression = require('compression');
 
+require('./models/db');
+require('./models/employee');
+
+const routes = require('./routes/routes');
+
 /* eslint-disable no-console */
 
 const port = Number(process.env.PORT || 3000);
@@ -11,9 +16,11 @@ const app = express();
 app.use(compression());
 app.use(express.static(path.join(__dirname, '../dist')));
 
+app.use('/api', routes);
+
 app.listen(port, (err) => {
   if(err) {
-    console.log('samething terrible just happened');
+    console.log('something terrible just happened');
   } else {
     console.log(`Server is listening on port ${port}`);
     open('http://localhost:' + port);
