@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 
 require('./models/db');
+require('./models/depStructure');
 require('./models/employee');
 
 const routes = require('./routes/routes');

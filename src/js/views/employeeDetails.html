@@ -1,0 +1,10 @@
+<div  class="panel panel-success">
+  <div class="panel-heading"><a href="/">Back To Employees List</a></div>
+  <div class="panel-body">
+    <h1 ng-model="name">{{name}}</h1>
+    <p>Subordinates:</p>
+    <ul class="list-group col-sm-5">
+      <li class="list-group-item" ng-repeat="subordinant in subordinants">{{subordinant}}</li>
+    </ul>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
+const DepStructure = mongoose.model('DepStructure');
 
 exports.addEmp = (req, res) => {
-  Employee.addEmployee(req.body.name, req.body.gender, req.body.contactInfo, req.body.dateAdded,(err) => {
+  Employee.addEmployee(req.body.name, req.body.gender, req.body.contactInfo, req.body.dateAdded, req.body.subordinates, (err) => {
     if(err) {
       res.status(400).json("Imposible to add employee");
     } else {
@@ -38,6 +39,16 @@ exports.getAllEmps = (req, res) => {
       res.status(400).json("No employees in DB");
     } else {
       res.status(200).json(employees);
+    }
+  });
+};
+
+exports.getSubords = (req, res) => {
+  DepStructure.getSubordinates(req.params.id, (err, subordinates) => {
+    if(err) {
+      res.status(400).json("No subordinates in DB");
+    } else {
+      res.status(200).json(subordinates.subordinates);
     }
   });
 };

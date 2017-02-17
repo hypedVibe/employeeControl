@@ -9,15 +9,13 @@
           <th>Gender</th>
           <th>Contact Info</th>
           <th>Date Added</th>
-          <!--<th>Start Time</th>
-          <th>Finish Time</th>-->
           <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="employee in employees">
-          <td>{{employee.name}}</td>
+          <td><a href="#!/{{employee._id}}" ng-click="getEmployeeName(employee)">{{employee.name}}</a></td>
           <td>{{employee.gender}}</td>
           <td>{{employee.contactInfo}}</td>
           <td>{{employee.dateAdded}}</td>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const DepStructure = mongoose.model('DepStructure');
 
 const employeeSchema = mongoose.Schema({
   name: String,
@@ -7,14 +8,20 @@ const employeeSchema = mongoose.Schema({
   dateAdded: String
 });
 
-employeeSchema.statics.addEmployee = function(name, gender, contactInfo, dateAdded, callback) {
+employeeSchema.statics.addEmployee = function(name, gender, contactInfo, dateAdded, subordinates, callback) {
   const Employee = this;
   let employee = new Employee({name, gender, contactInfo, dateAdded});
   employee.save((err, employee) => {
     if(err) {
       callback(err);
     } else {
-      callback(null, employee);
+      DepStructure.addDepStructure(employee._id, subordinates, function(err) {
+        if(err) {
+          callback(err);
+        } else {
+          callback(null, employee);
+        }
+      });
     }
   })
 };
