@@ -6,7 +6,7 @@ export default app => {
         gender: $scope.gender,
         contactInfo: $scope.contactInfo,
         dateAdded: getDate()
-      }
+      };
       employeeService.addEmployee(data);
       $uibModalInstance.close($route.reload());
     };

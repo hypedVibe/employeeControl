@@ -19,6 +19,18 @@ employeeSchema.statics.addEmployee = function(name, gender, contactInfo, dateAdd
   })
 };
 
+employeeSchema.statics.editEmployee = function(id, name, gender, contactInfo, callback) {
+  const Employee = this;
+
+  Employee.findOneAndUpdate({_id: id}, {$set: {name, gender, contactInfo}}, function(err, employee) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, employee);
+    }
+  });
+};
+
 employeeSchema.statics.getAllEmployees = function(callback) {
   const Employee = this;
 

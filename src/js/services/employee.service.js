@@ -12,8 +12,17 @@ export default app => {
       },
       addEmployee: (data) => {
         return $http.post('/api/addemployee', data)
-          .then(employee => {
-            return employee;
+          .then(msg => {
+            return msg;
+          })
+          .catch(err => {
+            alert('Something terrible just happened');
+          });
+      },
+      editEmployee: (data) => {
+        return $http.put(`/api/employees/${data.id}`, data)
+          .then(msg => {
+            return msg;
           })
           .catch(err => {
             alert('Something terrible just happened');
