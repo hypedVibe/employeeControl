@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const open = require('open');
+const bodyParser = require('body-parser');
 const compression = require('compression');
 
 require('./models/db');
@@ -13,6 +14,7 @@ const routes = require('./routes/routes');
 const port = Number(process.env.PORT || 3000);
 const app = express();
 
+app.use(bodyParser.json());
 app.use(compression());
 app.use(express.static(path.join(__dirname, '../dist')));
 

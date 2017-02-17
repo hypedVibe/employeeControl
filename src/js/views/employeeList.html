@@ -1,6 +1,7 @@
 <div class="panel panel-success">
   <div class="panel-heading">Employees List</div>
   <div class="panel-body">
+    <button class="btn btn-success" type="button" ng-click="addEmployee()">Add employee</button>
     <table class="table">
       <thead>
         <tr class="thead">
@@ -8,6 +9,10 @@
           <th>Gender</th>
           <th>Contact Info</th>
           <th>Date Added</th>
+          <!--<th>Start Time</th>
+          <th>Finish Time</th>-->
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +21,8 @@
           <td>{{employee.gender}}</td>
           <td>{{employee.contactInfo}}</td>
           <td>{{employee.dateAdded}}</td>
+          <td><button class="btn btn-warning" type="button">Edit</button></td>
+          <td><button class="btn btn-danger" type="button">Delete</button></td>
         </tr>
       </tbody>
     </table>

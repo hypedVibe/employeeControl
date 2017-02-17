@@ -7,6 +7,18 @@ const employeeSchema = mongoose.Schema({
   dateAdded: String
 });
 
+employeeSchema.statics.addEmployee = function(name, gender, contactInfo, dateAdded, callback) {
+  const Employee = this;
+  let employee = new Employee({name, gender, contactInfo, dateAdded});
+  employee.save((err, employee) => {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, employee);
+    }
+  })
+};
+
 employeeSchema.statics.getAllEmployees = function(callback) {
   const Employee = this;
 
@@ -19,4 +31,4 @@ employeeSchema.statics.getAllEmployees = function(callback) {
   });
 };
 
-module.exports = mongoose.model('Employee', employeeSchema, 'employee');
+module.exports = mongoose.model('Employee', employeeSchema);
