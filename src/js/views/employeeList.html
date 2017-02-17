@@ -22,7 +22,7 @@
           <td>{{employee.contactInfo}}</td>
           <td>{{employee.dateAdded}}</td>
           <td><button class="btn btn-warning" type="button" ng-click="editEmployee(employee)">Edit</button></td>
-          <td><button class="btn btn-danger" type="button">Delete</button></td>
+          <td><button class="btn btn-danger" type="button" ng-click="deleteEmployee(employee._id)">Delete</button></td>
         </tr>
       </tbody>
     </table>

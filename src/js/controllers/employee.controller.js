@@ -2,13 +2,13 @@ import addEmp from '../views/addEmployee.html';
 import editEmp from '../views/editEmployee.html';
 
 export default app => {
-  app.controller('EmployeeCtrl', ['$scope', '$uibModal', '$log', 'employeeService', ($scope, $uibModal, $log, employeeService) => {
+  app.controller('EmployeeCtrl', ['$scope', '$route','$uibModal', '$log', 'employeeService', 
+    ($scope, $route, $uibModal, $log, employeeService) => {
 
-    $scope.employee = {};
-
-    employeeService.getAllEmployees().then(employees => {
-      $scope.employees = employees.data;
-    });
+    employeeService.getAllEmployees()
+      .then(employees => {
+        $scope.employees = employees.data;
+      });
 
     $scope.addEmployee = () => {
       $uibModal.open({
@@ -30,5 +30,10 @@ export default app => {
         }
       });
     };
+
+    $scope.deleteEmployee = (id) => {
+      employeeService.deleteEmployee({id});
+      $route.reload();
+    }
   }])
 };

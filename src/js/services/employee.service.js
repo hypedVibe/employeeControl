@@ -10,8 +10,8 @@ export default app => {
             alert('Something terrible just happened');
           });
       },
-      addEmployee: (data) => {
-        return $http.post('/api/addemployee', data)
+      addEmployee: data => {
+        return $http.post('/api/employees', data)
           .then(msg => {
             return msg;
           })
@@ -19,8 +19,24 @@ export default app => {
             alert('Something terrible just happened');
           });
       },
-      editEmployee: (data) => {
-        return $http.put(`/api/employees/${data.id}`, data)
+      editEmployee: data => {
+        return $http.put('/api/employees', data)
+          .then(msg => {
+            return msg;
+          })
+          .catch(err => {
+            alert('Something terrible just happened');
+          });
+      },
+      deleteEmployee: id => {
+        return $http({
+          url: '/api/employees',
+          method: 'DELETE',
+          data: id,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
           .then(msg => {
             return msg;
           })

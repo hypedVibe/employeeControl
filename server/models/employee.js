@@ -31,6 +31,18 @@ employeeSchema.statics.editEmployee = function(id, name, gender, contactInfo, ca
   });
 };
 
+employeeSchema.statics.deleteEmployee = function(id, callback) {
+  const Employee = this;
+
+  Employee.findByIdAndRemove(id, function(err, data) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
 employeeSchema.statics.getAllEmployees = function(callback) {
   const Employee = this;
 

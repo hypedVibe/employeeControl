@@ -22,6 +22,16 @@ exports.editEmp = (req, res) => {
   })
 };
 
+exports.deleteEmp = (req, res) => {
+  Employee.deleteEmployee(req.body.id, (err) => {
+    if(err) {
+      res.status(400).json("Imposible to edit employee");
+    } else {
+      res.status(200).json("Emloyee deleted");
+    }
+  });
+};
+
 exports.getAllEmps = (req, res) => {
   Employee.getAllEmployees((err, employees) => {
     if(err) {
