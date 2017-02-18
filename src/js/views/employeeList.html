@@ -6,9 +6,8 @@
       <thead>
         <tr class="thead">
           <th>Name</th>
-          <th>Gender</th>
-          <th>Contact Info</th>
-          <th>Date Added</th>
+          <th>Start Time</th>
+          <th>Finish Time</th>
           <th></th>
           <th></th>
         </tr>
@@ -16,9 +15,8 @@
       <tbody>
         <tr ng-repeat="employee in employees">
           <td><a href="#!/{{employee._id}}" ng-click="getEmployeeName(employee)">{{employee.name}}</a></td>
-          <td>{{employee.gender}}</td>
-          <td>{{employee.contactInfo}}</td>
-          <td>{{employee.dateAdded}}</td>
+          <td>{{employee.startTime}}</td>
+          <td>{{employee.finishTime}}</td>
           <td><button class="btn btn-warning" type="button" ng-click="editEmployee(employee)">Edit</button></td>
           <td><button class="btn btn-danger" type="button" ng-click="deleteEmployee(employee._id)">Delete</button></td>
         </tr>

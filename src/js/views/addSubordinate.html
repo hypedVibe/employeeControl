@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h1>Add Subordinate</h1>
+</div>
+
+<form name="subordinateForm" novalidate>
+  <div class="modal-body">
+    <label>Subordinate Name</label>
+    <input type="text" name="name" class="form-control" ng-model="subordinate" required />
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success" ng-disabled="subordinateForm.$invalid" ng-click="add()">Add</button>
+    <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

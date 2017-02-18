@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 const DepStructure = mongoose.model('DepStructure');
-const TimeBoard = mongoose.model('TimeBoard');
 
 exports.addEmp = (req, res) => {
   Employee.addEmployee(req.body.name, req.body.gender, req.body.contactInfo, req.body.dateAdded, 
@@ -64,3 +63,13 @@ exports.addSubord = (req, res) => {
     }
   });
 };
+
+exports.deleteSubord = (req, res) => {
+  DepStructure.deleteSubordinate(req.params.id, req.body.subordinate, err => {
+    if(err) {
+      res.status(400).json("Impossible to delete subordinate");
+    } else {
+      res.status(200).json("Subordinate deleted");
+    }
+  });
+}

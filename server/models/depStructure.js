@@ -25,7 +25,7 @@ depStructureSchema.statics.addSubordinate = function(employeeId, subordinate, ca
       callback(err);
     } else {
       callback(null, data)
-    };
+    }
   })
 };
 
@@ -49,6 +49,17 @@ depStructureSchema.statics.getSubordinates = function(employeeId, callback) {
       callback(err);
     } else {
       callback(null, subordinates);
+    }
+  });
+};
+
+depStructureSchema.statics.deleteSubordinate = function(employeeId, subordName, callback) {
+  const DepStructure = this;
+  DepStructure.findOneAndUpdate({employeeId}, {$pullAll: {subordinates: [subordName]}}, function(err, data) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, data);
     }
   });
 };

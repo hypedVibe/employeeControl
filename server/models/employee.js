@@ -49,7 +49,7 @@ employeeSchema.statics.editEmployee = function(id, name, gender, contactInfo,
           callback(err);
         } else {
           callback(null, employee);
-        };
+        }
       });
     }
   });
@@ -71,7 +71,7 @@ employeeSchema.statics.deleteEmployee = function(id, callback) {
               callback(err);
             } else {
               callback(null, data);
-            };
+            }
           });
         }
       });

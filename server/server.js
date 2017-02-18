@@ -27,6 +27,6 @@ app.listen(port, (err) => {
     console.log('something terrible just happened');
   } else {
     console.log(`Server is listening on port ${port}`);
-    // open('http://localhost:' + port);
+    open('http://localhost:' + port);
   }
 })

@@ -2,12 +2,11 @@ import addEmp from '../views/addEmployee.html';
 import editEmp from '../views/editEmployee.html';
 
 export default app => {
-  app.controller('EmployeeCtrl', ['$scope', '$route','$uibModal', '$log', 'employeeService', 'shareNameService',
-    ($scope, $route, $uibModal, $log, employeeService, shareNameService) => {
+  app.controller('EmployeeCtrl', ['$scope', '$route', '$uibModal', 'employeeService', 'shareNameService',
+    ($scope, $route, $uibModal, employeeService, shareNameService) => {
 
     employeeService.getAllEmployees()
       .then(employees => {
-        console.log(employees.data);
         $scope.employees = employees.data;
       });
 
@@ -19,7 +18,7 @@ export default app => {
       });
     };
 
-    $scope.editEmployee = (employee) => {
+    $scope.editEmployee = employee => {
       $uibModal.open({
         animation: true,
         template: editEmp,
@@ -32,12 +31,12 @@ export default app => {
       });
     };
 
-    $scope.deleteEmployee = (id) => {
+    $scope.deleteEmployee = id => {
       employeeService.deleteEmployee({id});
       $route.reload();
     };
 
-    $scope.getEmployeeName = (employee) => {
+    $scope.getEmployeeName = employee => {
       shareNameService.setName(employee.name);
     };
   }])

@@ -1,11 +1,15 @@
 export default app => {
-  app.controller('AddEmployeeModalCtrl', ['$scope', '$route', '$uibModalInstance', 'employeeService', ($scope, $route, $uibModalInstance, employeeService) => {
+  app.controller('AddEmployeeModalCtrl', ['$scope', '$route', '$uibModalInstance', 'employeeService', 
+    ($scope, $route, $uibModalInstance, employeeService) => {
+      
     $scope.add = () => {
       let data = {
         name: $scope.name,
         gender: $scope.gender,
         contactInfo: $scope.contactInfo,
-        dateAdded: getDate()
+        dateAdded: getDate(),
+        startTime: $scope.startTime,
+        finishTime: $scope.finishTime
       };
       employeeService.addEmployee(data);
       $uibModalInstance.close($route.reload());

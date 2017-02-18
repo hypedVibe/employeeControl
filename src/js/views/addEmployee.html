@@ -21,6 +21,16 @@
     <input type="text" name="contactInfo" class="form-control" ng-model="contactInfo" required />
   </div>
 
+  <div class="modal-body">
+    <label>Start Time</label>
+    <input type="text" name="startTime" class="form-control" ng-model="startTime" required />
+  </div>
+
+  <div class="modal-body">
+    <label>Finish Time</label>
+    <input type="text" name="finishTime" class="form-control" ng-model="finishTime" required />
+  </div>
+
   <div class="modal-footer">
     <button type="submit" class="btn btn-success" ng-disabled="employeeForm.$invalid" ng-click="add()">Add</button>
     <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
