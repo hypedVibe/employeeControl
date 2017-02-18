@@ -4,8 +4,10 @@ import editEmp from '../views/editEmployee.html';
 export default app => {
   app.controller('EmployeeCtrl', ['$scope', '$route','$uibModal', '$log', 'employeeService', 'shareNameService',
     ($scope, $route, $uibModal, $log, employeeService, shareNameService) => {
+
     employeeService.getAllEmployees()
       .then(employees => {
+        console.log(employees.data);
         $scope.employees = employees.data;
       });
 

@@ -18,6 +18,29 @@ depStructureSchema.statics.addDepStructure = function(employeeId, subordinates, 
   });
 };
 
+depStructureSchema.statics.addSubordinate = function(employeeId, subordinate, callback) {
+  const DepStructure = this;
+  DepStructure.findOneAndUpdate({"employeeId": {$in: [employeeId]}}, {$push: {subordinates: subordinate}}, function(err, data) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, data)
+    };
+  })
+};
+
+depStructureSchema.statics.deleteDepStructure = function(employeeId, callback) {
+  const DepStructure = this;
+
+  DepStructure.remove({"employeeId": {$in: [employeeId]}}, function(err, data) {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
 depStructureSchema.statics.getSubordinates = function(employeeId, callback) {
   const DepStructure = this;
 

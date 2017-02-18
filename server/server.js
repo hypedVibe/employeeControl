@@ -6,6 +6,7 @@ const compression = require('compression');
 
 require('./models/db');
 require('./models/depStructure');
+require('./models/timeBoard');
 require('./models/employee');
 
 const routes = require('./routes/routes');
@@ -26,6 +27,6 @@ app.listen(port, (err) => {
     console.log('something terrible just happened');
   } else {
     console.log(`Server is listening on port ${port}`);
-    open('http://localhost:' + port);
+    // open('http://localhost:' + port);
   }
 })

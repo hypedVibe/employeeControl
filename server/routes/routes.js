@@ -7,6 +7,7 @@ Router.put('/employees', ctrl.editEmp);
 Router.delete('/employees', ctrl.deleteEmp);
 Router.get('/employees', ctrl.getAllEmps);
 
-Router.get('/getsubords/:id', ctrl.getSubords);
+Router.get('/subords/:id', ctrl.getSubords);
+Router.put('/subords/:id', ctrl.addSubord);
 
 module.exports = Router;
