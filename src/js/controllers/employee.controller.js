@@ -2,8 +2,8 @@ import addEmp from '../views/addEmployee.html';
 import editEmp from '../views/editEmployee.html';
 
 export default app => {
-  app.controller('EmployeeCtrl', ['$scope', '$route', '$uibModal', 'employeeService', 'shareNameService',
-    ($scope, $route, $uibModal, employeeService, shareNameService) => {
+  app.controller('EmployeeCtrl', ['$scope', '$route', '$uibModal', 'employeeService', 'shareDataService',
+    ($scope, $route, $uibModal, employeeService, shareDataService) => {
 
     employeeService.getAllEmployees()
       .then(employees => {
@@ -36,8 +36,8 @@ export default app => {
       $route.reload();
     };
 
-    $scope.getEmployeeName = employee => {
-      shareNameService.setName(employee.name);
+    $scope.setEmployeeName = employee => {
+      shareDataService.setEmployeeData(employee.name, employee.gender, employee.contactInfo, employee.dateAdded);
     };
   }])
 };

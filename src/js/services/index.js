@@ -1,9 +1,9 @@
 import employeeService from './employee.service';
 import employeeDetailsService from './employeeDetails.service';
-import shareNameService from './shareName.service';
+import shareDataService from './shareData.service';
 
 export default app => {
   employeeService(app);
   employeeDetailsService(app);
-  shareNameService(app);
+  shareDataService(app);
 };

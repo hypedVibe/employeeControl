@@ -1,10 +1,10 @@
 import addSubord from '../views/addSubordinate.html';
 
 export default app => {
-  app.controller('EmployeeDetailsCtrl', ['$scope', '$route', '$routeParams', '$uibModal', 'employeeDetailsService', 'shareNameService', 
-    ($scope, $route, $routeParams, $uibModal, employeeDetailsService, shareNameService) => {
+  app.controller('EmployeeDetailsCtrl', ['$scope', '$route', '$routeParams', '$uibModal', 'employeeDetailsService', 'shareDataService', 
+    ($scope, $route, $routeParams, $uibModal, employeeDetailsService, shareDataService) => {
     
-    $scope.name = shareNameService.getName();
+    $scope.employee = shareDataService.getEmployeeData();
 
     employeeDetailsService.getSubordinants($routeParams.id)
       .then(result => {

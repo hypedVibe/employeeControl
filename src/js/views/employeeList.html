@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="employee in employees">
-          <td><a href="#!/{{employee._id}}" ng-click="getEmployeeName(employee)">{{employee.name}}</a></td>
+          <td><a href="#!/{{employee._id}}" ng-click="setEmployeeName(employee)">{{employee.name}}</a></td>
           <td>{{employee.startTime}}</td>
           <td>{{employee.finishTime}}</td>
           <td><button class="btn btn-warning" type="button" ng-click="editEmployee(employee)">Edit</button></td>

@@ -1,15 +1,15 @@
 <div  class="panel panel-success">
   <div class="panel-heading"><a href="/">Back To Employees List</a></div>
   <div class="panel-body">
-    <h1 ng-model="name">{{name}}</h1>
+    <h1>{{employee.name}}</h1>
+    <p>Gender: {{employee.gender}}, Contact Info: {{employee.contactInfo}}, Date Added: {{employee.dateAdded}}</p>
     <button class="btn btn-success" type="button" ng-click="addSubordinate()">Add subordinate</button>
-    <p>Subordinates:</p>
+    <h3>Subordinates:</h3>
     <ul class="list-group col-sm-5">
       <li class="list-group-item" ng-repeat="subordinate in subordinates">
         {{subordinate}}
         <button class="btn btn-danger" type="button" ng-click="deleteSubordinate(subordinate)">Delete</button>
       </li>
-      
     </ul>
   </div>
 </div>
