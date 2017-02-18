@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="employee in employees">
+        <tr ng-repeat="employee in employees.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
           <td><a href="#!/{{employee._id}}" ng-click="setEmployeeName(employee)">{{employee.name}}</a></td>
           <td>{{employee.startTime}}</td>
           <td>{{employee.finishTime}}</td>
@@ -24,3 +24,4 @@
     </table>
   </div>
 </div>
+<ul uib-pagination total-items="totalItems" ng-model="currentPage"></ul>

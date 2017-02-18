@@ -8,7 +8,16 @@ export default app => {
     employeeService.getAllEmployees()
       .then(employees => {
         $scope.employees = employees.data;
+        $scope.totalItems = $scope.employees.length;
       });
+
+    $scope.currentPage = 1;
+
+    $scope.itemsPerPage = 10;
+
+    $scope.setPage = pageNum => {
+      $scope.currentPage = pageNum;
+    };
 
     $scope.addEmployee = () => {
       $uibModal.open({
