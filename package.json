@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "prestart": "npm run dev-build",
-    "start": "npm-run-all --parallel open:dist lint:watch",
+    "prestart": "npm run prod-build",
+    "start": "npm-run-all --parallel open:dist",
     "open:dist": "node server/server.js",
     "lint": "esw webpack.config.* src server --color",
     "lint:watch": "npm run lint -- --watch",
