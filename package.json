@@ -6,6 +6,7 @@
   "scripts": {
     "prestart": "npm run prod-build",
     "start": "npm-run-all --parallel open:dist",
+    "test": "node_modules/mocha/bin/mocha",
     "open:dist": "node server/server.js",
     "lint": "esw webpack.config.* src server --color",
     "lint:watch": "npm run lint -- --watch",
@@ -36,8 +37,10 @@
     "extract-text-webpack-plugin": "^2.0.0-beta",
     "file-loader": "^0.10.0",
     "html-webpack-plugin": "^2.28.0",
+    "mocha": "^3.2.0",
     "npm-run-all": "^4.0.1",
     "raw-loader": "^0.5.1",
+    "sinon": "^1.17.7",
     "strip-loader": "^0.1.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
